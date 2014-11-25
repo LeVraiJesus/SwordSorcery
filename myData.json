@@ -1,0 +1,56 @@
+{ 
+	"pages": [
+		{
+			"myId": "intro", 
+			"myContentH2": "Epic dungeon of the evil necromancer",
+			"myContentTxt": "En voila un jeu qu'il est bien",
+			"myAction": "reset",
+			"myGo": "wakeUp",
+			"myGoContent": "Commencer l'aventure !"
+		},
+		{ 
+			"myId": "wakeUp",
+			"myContentH2": "null",
+		 	"myContentTxt": "Vous ouvez les yeux... Tout est noir autour de vous...",
+		 	"myAction": "start",
+			"myGo": "cavern",
+			"myGoContent": "Se relever"
+		},
+		{ 
+			"myId": "cavern",
+			"myContentH2": "null",
+		 	"myContentTxt": "Vous êtes dans une caverne sombre. La seule issue semble être une porte à quelques mètres de là.",
+		 	"myAction": "null",
+			"myGo": "doorLocked",
+			"myGoContent": "Sortir",
+			"myGo1": "wait",
+			"myGo1Content": "Attendre",
+			"myGo2": "examine",
+			"myGo2Content": "Examiner le sol"
+		},
+		{
+			"myId": "examine",
+			"myContentH2": "null",
+		 	"myContentTxt": "Rien de plus que des petits cailloux et de la poussière...",
+		 	"myAction": "null",
+			"myGo": "doorLocked",
+			"myGoContent": "Sortir",
+			"myGo1": "wait",
+			"myGo1Content": "Attendre"
+		},
+		{
+			"myId": "wait",
+			"myContentH2": "null",
+		 	"myContentTxt": "Vous attendez quelques minutes, mais rien ne se passe...",
+		 	"myAction": "null",
+			"myGo": "wait",
+			"myGoContent": "Continuer à attendre",
+			"myGo1": "hitWall",
+			"myGo1Content": "Se taper la tête contre le mur",
+			"myGo2": "doorLocked",
+			"myGo2Content": "Sortir",
+			"myGo3": "examine",
+			"myGo3Content": "Examiner le sol"
+		}
+	]
+}
