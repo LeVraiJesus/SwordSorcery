@@ -86,9 +86,7 @@ $(function() {
 				break;
 			case 'hit' :
 				if(inGame){
-					console.log("hit");
 					life = life -1;
-					console.log(life);
 				}
 				break;
 		}
