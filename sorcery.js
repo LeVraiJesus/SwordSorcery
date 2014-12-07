@@ -1,74 +1,78 @@
-$( function() {
+$(function() {
 	var CONST_LIFE_INIT = 4;
 	var CONST_FADE_IN = 800;
 
 	var inGame = false;
-	
-	goToSectionJSON('intro');
+	var life = "--";
+
+	goToSectionJSON('acceuil');
 
 	//**Functions**\\
 	function initGame(){
-		setLife( CONST_LIFE_INIT );
+		life = CONST_LIFE_INIT;
+	}
+
+	function initPromise(){
+		var settings={
+			dataType:"json",
+			url:"data.json"}
+		promise = $.ajax(settings);
+		return promise;
 	}
 
 	function goToSectionJSON(myId){
-		
-		$.getJSON("myData.json",function(data){
-			
 			//**INITIALISATION**\\
-			var items = [];
-			var nbEach = 0;
-			var myNbById = -1;
-			var myActionName = 'null';
-
+			$('body > div').remove();
+			var promise=initPromise();
+			var myActionName =null;
+			var myPage=null;
 			//**RECUPERATION DES DONNEES**\\
-			$.each(data.pages, function(key, val){
-
-				if(myId == data.pages[nbEach].myId){myNbById = nbEach;}
-				items[nbEach] = "<div class='section' id='" + data.pages[nbEach].myId + "'>" ;
-				
-				if(data.pages[nbEach].myContentH2 != "null"){
-					items[nbEach] += "<h2>" + data.pages[nbEach].myContentH2 + "</h2>";}
-				items[nbEach] += data.pages[nbEach].myContentTxt;
-				
-				if(data.pages[nbEach].myAction != "null"){
-					items[nbEach] += "<action name='" + data.pages[nbEach].myAction + "'/>";
-					if(myNbById==nbEach){myActionName=data.pages[nbEach].myAction;} }
-				
-				items[nbEach] += "<button go='" + data.pages[nbEach].myGo + "'>" + data.pages[nbEach].myGoContent + "</button>";
-				items[nbEach] += "</div>";
+			promise.done(function(data){
+				$.each(data.pages,function(index, page){
+					if(myId == page.myId){
+						myPage = "<div class='section' id='" + page.myId + "'>" ;
 					
-				nbEach++;
+						if(page.myContentH2 != "null"){
+							myPage += "<h2>" + page.myContentH2 + "</h2>";}
+					
+						if(page.myContentTxt != "null"){
+							myPage += "<p>" + page.myContentTxt + "</p>";}
+						
+						if(page.myAction != "null"){
+							myPage += "<action name='" + page.myAction + "'/>";
+							myActionName=page.myAction;}
+						
+						$.each(page.myGo,function(index, idGo){
+							myPage += "<button go='" + idGo+ "'>" + page.myGoContent[index] + "</button>";
+						});
+						
+						myPage += "</div>";
+					}
+				});
+				/*EXECUTION DE L'ACTION COURANTE*/
+				if(myActionName!=null){executeAction(myActionName);}
+				
+				/*MISE EN FORME DIV STATUS*/
+				if(myId!="acceuil" && myId!="contact"){
+				var divStatus = "<div id='status'><div class='life'>";
+				divStatus += "Life : <span class='value'>"+life+"</span>";
+				divStatus += "</div></div>";}
+				
+				//**AFFICHAGE DES DONNEES**\\
+				if(myPage!=null){
+					$('body').append(divStatus);
+					$('body').append(myPage);
+					$('body > .section').hide();
+					$('body > .section').fadeIn(CONST_FADE_IN);}
+				
+				//**EVENEMENT**\\	
+				$(".section button").click( function() {
+					goToSectionJSON($(this).attr('go'));
+				});
+
+				//**VERIFICATION DE CONDITION DE FIN DE JEU**\\
+				if(life<=0 && inGame){endGame();}
 			});
-			
-			//**AFFICHAGE DES DONNEES**\\
-			if(myNbById!=-1){$('body').append(items[myNbById]);}
-			/*EXECUTION DE L'ACTION COURANTE*/
-			if(myActionName!='null'){executeAction(myActionName);}
-
-			//**EVENEMENT**\\	
-			$(".section button").click( function() {
-				alert('front');
-				$(this).parents('div').hide();
-				goToSectionJSON($(this).attr('go'));
-			} );
-
-			//**VERIFICATION DE CONDITION DE FIN DE JEU**\\
-			if(getLife()<=0 && inGame){endGame();}
-		});
-
-	}
-	
-	function getLife() {
-		return $('.life span.value').html();
-	}
-	
-	function setLife(v) {
-		$('.life span.value').html(v);
-	}
-	
-	function loseOneLife() {
-		setLife(getLife()-1);
 	}
 	
 	function executeAction(name) { 
@@ -81,8 +85,11 @@ $( function() {
 				startGame();
 				break;
 			case 'hit' :
-				if(inGame)
-					loseOneLife();
+				if(inGame){
+					console.log("hit");
+					life = life -1;
+					console.log(life);
+				}
 				break;
 		}
 	}
@@ -95,4 +102,4 @@ $( function() {
 		inGame = false;
 		goToSectionJSON('death');
 	}
-} );
+});
