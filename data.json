@@ -1,0 +1,157 @@
+{ 
+	"pages": [
+		{
+			"myId": "acceuil", 
+			"myContentH2": "Lourd Menu",
+			"myContentTxt": "null",
+			"myAction": "null",
+			"myGo": ["intro1","intro2","contact"],
+			"myGoContent": ["La petite aventure","La grande aventure","Contact"]
+		},
+		{
+			"myId": "contact", 
+			"myContentH2": "Faya Team",
+			"myContentTxt": "lorem ipsum ...",
+			"myAction": "null",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Retour"]
+		},
+		{
+			"myId": "intro1", 
+			"myContentH2": "Epic dungeon of the evil necromancer",
+			"myContentTxt": "En voila un jeu qu'il est bien",
+			"myAction": "reset",
+			"myGo": ["wakeUp"],
+			"myGoContent": ["Commencer l'aventure !"]
+		},
+		{ 
+			"myId": "wakeUp",
+			"myContentH2": "null",
+		 	"myContentTxt": "Vous ouvez les yeux... Tout est noir autour de vous...",
+		 	"myAction": "start",
+			"myGo": ["cavern"],
+			"myGoContent": ["Se relever"]
+		},
+		{ 
+			"myId": "cavern",
+			"myContentH2": "null",
+		 	"myContentTxt": "Vous êtes dans une caverne sombre. La seule issue semble être une porte à quelques mètres de là.",
+		 	"myAction": "null",
+			"myGo": ["doorLocked","wait","examine"],
+			"myGoContent": ["Sortir","Attendre","Examiner le sol"]
+		},
+		{
+			"myId": "examine",
+			"myContentH2": "null",
+		 	"myContentTxt": "Rien de plus que des petits cailloux et de la poussière...",
+		 	"myAction": "null",
+			"myGo": ["doorLocked","wait"],
+			"myGoContent": ["Sortir","Attendre"]
+		},
+		{
+			"myId": "wait",
+			"myContentH2": "null",
+		 	"myContentTxt": "Vous attendez quelques minutes, mais rien ne se passe...",
+		 	"myAction": "null",
+			"myGo": ["wait","hitWall","doorLocked","examine"],
+			"myGoContent": ["Continuer à attendre","Se taper la tête contre le mur","Sortir","Examiner le sol"]
+		},
+		{
+			"myId": "hitWall", 
+			"myContentH2": "Aie ! Vous perdez 1 point de vie...",
+			"myContentTxt": "Quelque chose tombe du plafond : une clé était cachée dans une faille.",
+			"myAction": "hit",
+			"myGo": ["exit"],
+			"myGoContent": ["Utiliser la clé et ouvrir la porte"]
+		},
+		{
+			"myId": "doorLocked", 
+			"myContentH2": "null",
+			"myContentTxt": "Malheureusement, une porte en bois bloque le passage. Elle a l'air vraiment solide&nbsp;: peu probable que vous puissiez la défoncer.",
+			"myAction": "null",
+			"myGo": ["hitDoor","cavern"],
+			"myGoContent": ["Donner un grand coup d'épaule","Retourner sur vos pas"]
+		},
+		{
+			"myId": "hitDoor", 
+			"myContentH2": "null",
+			"myContentTxt": "BLAM ! La porte n'a pas bougé d'un poil. Par contre, votre épaule, elle, s'est enfoncée de quelques centimètres. Vous perdez 1 point de vie.",
+			"myAction": "hit",
+			"myGo": ["hitDoor","cavern"],
+			"myGoContent": ["Ré-essayer !","Retourner sur vos pas"]
+		},
+		{
+			"myId": "exit", 
+			"myContentH2": "null",
+			"myContentTxt": "Vous voyez la lumière du jour... Vous avez réussi à vous échapper !",
+			"myAction": "null",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Fin"]
+		},
+		{
+			"myId": "death", 
+			"myContentH2": "null",
+			"myContentTxt": "Vous êtes mort(e) ! C'est balot.",
+			"myAction": "null",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Fin"]
+		},
+		{
+			"myId": "intro2", 
+			"myContentH2": "Bienvenue dans La grande aventure",
+			"myContentTxt": "Prêt à commencer ?",
+			"myAction": "reset",
+			"myGo": ["doorOfDonjon","acceuil"],
+			"myGoContent": ["Continuer","Revenir au menu"]
+		},
+		{
+			"myId": "doorOfDonjon", 
+			"myContentH2": "null",
+			"myContentTxt": "Vous voilà devant les immenses portes du donjon du démon que l'on nomme Zator le malveillant",
+			"myAction": "null",
+			"myGo": ["greatHall","goHome"],
+			"myGoContent": ["Rentrer dans le donjon","Rentrer chez soi"]
+		},
+		{
+			"myId": "greatHall", 
+			"myContentH2": "Le grand hall",
+			"myContentTxt": "Vous êtes rentrez, quel courage, vous pouvez voir un groupe d'aventurier en attente dans le hall et un escalier descendant en face de vous.",
+			"myAction": "null",
+			"myGo": ["grpAventurier","1stLevel"],
+			"myGoContent": ["Aller parler aux autres aventurier","Se lancer dans les escalier du donjon"]
+		},
+		{
+			"myId": "goHome", 
+			"myContentH2": "null",
+			"myContentTxt": "Ce voyage fut d'aucune utilité, vous rentrez en vie mais sans haut faits honnorable...",
+			"myAction": "null",
+			"myGo": ["doorOfDonjon","oldDeath"],
+			"myGoContent": ["Repartir au donjon de Zator le malveillant","Rester chez soi"]
+
+		},
+		{
+			"myId": "oldDeath", 
+			"myContentH2": "null",
+			"myContentTxt": "Vous êtes mort(e) de veillesse !",
+			"myAction": "null",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Fin"]
+		},
+		{
+			"myId": "grpAventurier", 
+			"myContentH2": "Les aventurier des terres disparues",
+			"myContentTxt": "Vous : Bonjour à vous ! </br> Un des hommes : Bonjour mon ami je me présente Narvin fils de Nain et voici Elial fille d'elfe et Eroll fils de barbare l'un de nous pourrait-il t'accompagner dans ta quête ? ",
+			"myAction": "null",
+			"myGo": ["getNain","getElf","getBarbare","1stLevel"],
+			"myGoContent": ["Demander au nain de vous rejoindre","Demander à l'elf de vous rejoindre","Demander au barbare de vous rejoindre","Continuer votre route en remerciant les aventurier" ]
+		},
+		{
+			"myId": "1stLevel",
+			"myContentH2": "Premier niveau du donjon",
+			"myContentTxt": "Vous voila au premier niveau du donjon",
+			"myAction": "null",
+			"myGo": ["2sdLevel"],
+			"myGoContent": [""]
+		}
+	]
+}
