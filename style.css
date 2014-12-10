@@ -1,3 +1,7 @@
+html {
+	cursor: url('cursor.png'), pointer;
+}
+
 body {
 	font-size : 13pt;
 	font-family : "Trebuchet MS", Arial, sans-serif;
@@ -57,7 +61,8 @@ h2 {
 
 .section button:hover {
 	color : lightGray;
-	background-color : black;
+	background-color : gray;
+	cursor: url('cursorHover.png'), pointer;
 }
 
 .battle {
@@ -66,7 +71,10 @@ h2 {
 	box-shadow : 0px 2px 8px gray;
 }
 
-#inventaire {
+#inventaire:hover {
+	color : red;
+	background-color : gray;
+	cursor:url('cursorHover.png'),pointer;
 }
 
 #inventaireContent{
@@ -78,22 +86,27 @@ h2 {
 }
 
 #inventaireContent #empty{
-	font-style: italic;	
+	font-style: italic;		
 }
 
 #inventaireContent .Parchemin{
-	background-image:url(favicon.jpg);
+	background-image:url('Parchemin.png');
+	background-color:NavajoWhite;
 	background-position: left;
 	background-repeat: no-repeat;
 }
 
 #inventaireContent span {
 	display : inline-block;
-	padding : 10px 20px;
+	padding : 10px 25px;
 	padding-right: 5px;
 	color : gray;
 	border-left : 1px solid lightGray;
 	border-right : 1px solid lightGray;
+}
+
+#inventaireContent span:hover {
+	cursor:url('cursorHover.png'),pointer;
 }
 
 #inventaireContent span+span {
@@ -101,7 +114,8 @@ h2 {
 }
 
 #inventaireContent .Clef{
-	background-image:url(favicon.jpg);
+	background-image:url('Clef.png');
+	background-color:Silver;
 	background-position: left;
 	background-repeat: no-repeat;
 }

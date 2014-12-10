@@ -97,13 +97,12 @@
 			"myId": "greatHall", 
 			"myContentH2": "Le grand hall",
 			"myContentTxt": "Vous êtes rentrez, quel courage, vous pouvez voir un groupe d'aventurier en attente dans le hall et un escalier descendant en face de vous.",
-			"myGo": ["grpAventurier","1stLevel"],
-			"myGoContent": ["Aller parler aux autres aventurier","Se lancer dans les escalier du donjon"]
+			"myGo": ["grpAventurier","1stLevel","doorOfDonjon"],
+			"myGoContent": ["Aller parler aux autres aventurier","Se lancer dans les escalier du donjon","Sortir du donjon"]
 		},
 		{
 			"myId": "goHome",
-			"myContentTxt": "Vous rentrez en vie mais sans haut faits honnorable...",
-			"myContentElf": "Votre femme: Coucou chérie tu rentres bien tot, t'avais oublié ce parchemin en partant !",
+			"myContentTxt": "Vous rentrez en vie mais sans haut faits honnorable...</br><I>Votre femme: Coucou chérie tu rentres bien tot, t'avais oublié ce parchemin en partant !</I>",
 			"myAction": "getParchemin",
 			"myGo": ["doorOfDonjon","oldDeath"],
 			"myGoContent": ["Repartir au donjon de Zator le malveillant","Rester chez soi"]
@@ -185,21 +184,20 @@
 			"myContentTxt": "Le sol tremble d'un grondement si grave qu'il parait venir des abimes..",
 			"myContentElf": "Elial : Cette odeur répugnante ne peux venir que d'un troll des cavernes restons silencieux.. Je pense que le mieux serait d'éviter de le reveiller je peux m'en occuper, la discretion des elfs est bien connue..",
 			"myContentNain": "Narvin : Regardez au fond de la salle à coté de la prochaine porte, c'est un troll endormie ! Si on arrive à s'en approcher discrétement on pourrait se le faire !",
-			"myGo": ["killTrollCompagnon","killTroll"],
-			"myGoContent": ["Laisser faire son compagnon","S'en occuper personnelement"]	
+			"myGo": ["killTrollCompagnon","killTroll","gobelinWasKilled"],
+			"myGoContent": ["Laisser faire son compagnon","S'en occuper personnelement","Retour"]	
 		},
 		{
-			"myId": "killTroll",
-			"myContentTxt": "Le sol tremble d'un grondement si grave qu'il parait venir des abimes de la Terre..",
-			"myContentElf": "Elial : Cette odeur répugnante ne peux venir que d'un troll des cavernes restons silencieux.. Je pense que le mieux serait d'éviter de le reveiller je peux m'en occuper, la discretion des elfs est bien connue..",
-			"myContentNain": "Narvin : Regardez au fond de la salle, à coté de la prochaine porte, c'est un troll endormie ! Si on arrive à s'en approcher discrétement on pourrait se le faire !",
-			"myGo": ["killTrollCompagnon","killTroll"],
-			"myGoContent": ["Laisser faire son compagnon","S'en occuper personnelement"]	
+			"myId": "gobelinWasKilled",
+			"myContentH2": "Premier niveau du donjon de Zator le malveillant",
+			"myContentTxt": "Des cadavres de gobelins jonche sur le sol",
+			"myGo": ["greatHall","2sdLevel"],
+			"myGoContent": ["Remonter à la grande salle","Retourner au niveau deux du donjon"]
 		},
 		{
 			"myId": "killTrollCompagnon",
 			"myContentElf": "Elial s'approche doucement du troll puis lui enfonce son couteau en plein coeur.. </br> Elial : Une créature de moins !",
-			"myContentNain": "Narvin s'approche du Troll trébuche et le Troll se reveille ! </br> Narvin : Aaargh Fuyez !",
+			"myContentNain": "Narvin s'approche du Troll trébuche et le Troll se reveille ! </br> Narvin : Aaargh ! </br> </br> Vous subissez une blessure d'un point de vie en allant l'aider à combattre la bête",
 			"myAction": "killTrollCompagnon",
 			"myGo": ["fouyerTroll","3rdLevel"],
 			"myGoContent": ["Aller fouiller le Troll","Continuer à la prochaine salle"]	
@@ -214,7 +212,7 @@
 			"myGoContent": ["Fouiller le Troll","Continuer à la prochaine salle"]	
 		},
 		{
-			"myId": "fouyerTrool",
+			"myId": "fouyerTroll",
 			"myContentTxt": "Vous trouvez une grosse clé rouillé...",
 			"myAction": "getClef",
 			"myGo": ["3rdLevel"],
@@ -222,9 +220,65 @@
 		},
 		{
 			"myId": "3rdLevel",
-			"myContentH2": "Troisième niveaeu du donjon",
-			"myGo": [""],
-			"myGoContent": [""]
+			"myContentH2": "Troisième niveau du donjon",
+			"myContentTxt": "Deux grandes portes de bois s'éléve devant vous !",
+			"myContentElf": "Elial : C'est deux portes sont fermés faudrait trouver un moyen de les ouvrir",
+			"myContentNain": "Narvin : C'est deux portes sont fermés faudrait trouver un moyen de les ouvrir",
+			"myGo": ["ouvrirPorteGauche","ouvrirPorteDroite"],
+			"myGoContent": ["Essayer d'ouvrir la porte de gauche","Essayer d'ouvrir la porte de droite"]
+		},
+		{
+			"myId": "ouvrirPorteGauche",
+			"myContentTxt": "Vous essayez d'ouvrir la porte de gauche..",
+			"myAction": "openDoorLeft"
+		},
+		{
+			"myId": "ouvrirPorteDroite",
+			"myContentTxt": "Vous essayez d'ouvrir la porte de droite..",
+			"myAction": "openDoorRight"
+		},
+		{
+			"myId":"porteGaucheFail",
+			"myContentTxt": "Vous n'avez pas réussi à ouvrir la porte de gauche..",
+			"myGo": ["porteDroite","3rdLevel"],
+			"myGoContent": ["Essayer d'ouvrir la porte de droite","Retour"]
+		},
+		{
+			"myId":"porteDroiteFail",
+			"myContentTxt": "Vous n'avez pas réussi à ouvrir la porte de droite..",
+			"myGo": ["porteGauche","3rdLevel"],
+			"myGoContent": ["Essayer d'ouvrir la porte de gauche","Retour"]
+		},
+		{
+			"myId":"porteGaucheWin",
+			"myContentTxt": "Vous avez réussi à ouvrir la porte de gauche..",
+			"myGo": ["derrierePorteGauche"],
+			"myGoContent": ["Entrer dans la piece"]
+		},
+		{
+			"myId":"porteDroiteWin",
+			"myContentTxt": "Vous avez réussi à ouvrir la porte de droite..",
+			"myGo": ["derrierePorteDroite"],
+			"myGoContent": ["Entrer dans la piece"]
+		},
+		{
+			"myId": "derrierePorteGauche"
+		},
+		{
+			"myId": "derrierePorteDroite"
+		},
+		{
+			"myId": "3rdLevelGaucheOuverte",
+			"myGo": ["derrierePorteGauche","ouvrirPorteDroite"],
+			"myGoContent": ["Entrer dans la piece de Gauche","Essayer d'ouvrir la porte de droite"]	
+		},
+		{
+			"myId": "3rdLevelDroiteOuverte",
+			"myGo": ["derrierePorteDroite","ouvrirPorteGauche"],
+			"myGoContent": ["Entrer dans la piece de Droite","Essayer d'ouvrir la porte de gauche"]
+		},
+		{
+			"myId": ""
 		}
 	]
 }

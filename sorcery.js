@@ -10,9 +10,9 @@ $(function() {
 	var hasReceivedParchemin = false;
 	var hasReceivedKey = false;
 
+	var isSnicky = false;
+
 	goToSectionJSON('acceuil');
-/*	executeAction('getParchemin');
-	executeAction('getClef');*/
 
 	//**Functions**\\
 	function initGame(){
@@ -38,7 +38,8 @@ $(function() {
 					/*SELECTION DE LA PAGE SOUHAITEE*/
 					if(myId == page.myId){
 						/*EXECUTION DE L'ACTION COURANTE*/
-						if(page.myAction != null){executeAction(page.myAction);}
+						var outAction = null;
+						if(page.myAction != null){outAction = executeAction(page.myAction);}
 
 						myPage = "<div class='section' id='" + page.myId + "'>" ;
 					
@@ -46,7 +47,13 @@ $(function() {
 							myPage += "<h2>" + page.myContentH2 + "</h2>";}
 					
 						if(page.myContentTxt != null){
-							myPage += "<p>" + page.myContentTxt + "</p>";}
+							myPage += "<p>" + page.myContentTxt;
+							if(outAction==null){
+								myPage += "</p>";
+							}else{
+								myPage += "</br>" + outAction + "</p>";
+							}
+						}
 						
 						if(compagnon == 'Elf'){
 							if(page.myContentElf != null){
@@ -61,10 +68,12 @@ $(function() {
 						if(page.myAction != null){
 							myPage += "<action name='" + page.myAction + "'/>";}
 						
-						$.each(page.myGo,function(index, idGo){
-							myPage += "<button go='" + idGo+ "'>" + page.myGoContent[index] + "</button>";
-						});
-						
+						if(page.myGo!=null){
+							$.each(page.myGo,function(index, idGo){
+								myPage += "<button go='" + idGo+ "'>" + page.myGoContent[index] + "</button>";
+							});
+						}
+
 						myPage += "</div>";
 					}
 				});
@@ -102,7 +111,7 @@ $(function() {
 					$('body > .section').hide();
 					$('body > .section').fadeIn(CONST_FADE_IN);}
 				
-				//**EVENEMENT**\\	
+				//**EVENEMENT**\	
 				$('.section button').click( function() {
 					goToSectionJSON($(this).attr('go'));
 				});
@@ -154,6 +163,19 @@ $(function() {
 				inventaire.push("Parchemin de discrétion");
 				hasReceivedParchemin = true;}
 				break;
+			case 'killTroll' :
+				if(isSnicky){
+					isScnicky = false;
+					return 'Votre parchemin de discrétion a bien fonctionné vous avez pu égorger la bête sans encombre !';
+				}else{
+					life-=2;
+					return 'Votre manque de discrétion à réveiller le troll une fois prés de lui vous perdez 2 points de vie dans le combat mais vous en sortais vainqueur';
+				}
+				break;
+			case 'killTrollCompagnon' :
+				if(compagnon == 'Nain'){
+					life-=1;
+				}
 			case 'getClef' :
 				if(!hasReceivedKey){
 				inventaire.push("Clef rouillée");
@@ -161,4 +183,5 @@ $(function() {
 				break;
 		}
 	}
+	return null;
 });
