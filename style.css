@@ -16,14 +16,14 @@ h2 {
 	border-bottom : 1px solid lightGray;
 }
 
-#status div {
+#status #premierNiveau div {
 	display : inline-block;
 	padding : 10px 20px;
 	color : gray;
 	border-left : 1px solid lightGray;
 	border-right : 1px solid lightGray;
 }
-#status div+div {
+#status #premierNiveau div+div {
 	border-left : none;
 }
 
@@ -34,9 +34,11 @@ h2 {
 	max-width : 600px;
 	border : 1px solid lightGray;
 }
-.section#intro {
-	display : block;
+
+.section .contentCompagnon {
+	font-style: italic;
 }
+
 .section button {
 	display : block;
 	width : 100%;
@@ -48,6 +50,7 @@ h2 {
 	border : none;
 	cursor : pointer;
 }
+
 .section button+button  {
 	margin-top : 10px;
 }
@@ -63,4 +66,42 @@ h2 {
 	box-shadow : 0px 2px 8px gray;
 }
 
+#inventaire {
+}
 
+#inventaireContent{
+	text-align: center;
+	width: 100%;
+	top:40px;
+	position: absolute;
+	border-bottom: 1px solid lightGray;
+}
+
+#inventaireContent #empty{
+	font-style: italic;	
+}
+
+#inventaireContent .Parchemin{
+	background-image:url(favicon.jpg);
+	background-position: left;
+	background-repeat: no-repeat;
+}
+
+#inventaireContent span {
+	display : inline-block;
+	padding : 10px 20px;
+	padding-right: 5px;
+	color : gray;
+	border-left : 1px solid lightGray;
+	border-right : 1px solid lightGray;
+}
+
+#inventaireContent span+span {
+	border-left : none;
+}
+
+#inventaireContent .Clef{
+	background-image:url(favicon.jpg);
+	background-position: left;
+	background-repeat: no-repeat;
+}

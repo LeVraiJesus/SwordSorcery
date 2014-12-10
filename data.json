@@ -3,8 +3,6 @@
 		{
 			"myId": "acceuil", 
 			"myContentH2": "Lourd Menu",
-			"myContentTxt": "null",
-			"myAction": "null",
 			"myGo": ["intro1","intro2","contact"],
 			"myGoContent": ["La petite aventure","La grande aventure","Contact"]
 		},
@@ -12,7 +10,6 @@
 			"myId": "contact", 
 			"myContentH2": "Faya Team",
 			"myContentTxt": "lorem ipsum ...",
-			"myAction": "null",
 			"myGo": ["acceuil"],
 			"myGoContent": ["Retour"]
 		},
@@ -26,7 +23,6 @@
 		},
 		{ 
 			"myId": "wakeUp",
-			"myContentH2": "null",
 		 	"myContentTxt": "Vous ouvez les yeux... Tout est noir autour de vous...",
 		 	"myAction": "start",
 			"myGo": ["cavern"],
@@ -34,25 +30,19 @@
 		},
 		{ 
 			"myId": "cavern",
-			"myContentH2": "null",
 		 	"myContentTxt": "Vous êtes dans une caverne sombre. La seule issue semble être une porte à quelques mètres de là.",
-		 	"myAction": "null",
 			"myGo": ["doorLocked","wait","examine"],
 			"myGoContent": ["Sortir","Attendre","Examiner le sol"]
 		},
 		{
 			"myId": "examine",
-			"myContentH2": "null",
 		 	"myContentTxt": "Rien de plus que des petits cailloux et de la poussière...",
-		 	"myAction": "null",
 			"myGo": ["doorLocked","wait"],
 			"myGoContent": ["Sortir","Attendre"]
 		},
 		{
 			"myId": "wait",
-			"myContentH2": "null",
 		 	"myContentTxt": "Vous attendez quelques minutes, mais rien ne se passe...",
-		 	"myAction": "null",
 			"myGo": ["wait","hitWall","doorLocked","examine"],
 			"myGoContent": ["Continuer à attendre","Se taper la tête contre le mur","Sortir","Examiner le sol"]
 		},
@@ -65,34 +55,27 @@
 			"myGoContent": ["Utiliser la clé et ouvrir la porte"]
 		},
 		{
-			"myId": "doorLocked", 
-			"myContentH2": "null",
+			"myId": "doorLocked",
 			"myContentTxt": "Malheureusement, une porte en bois bloque le passage. Elle a l'air vraiment solide&nbsp;: peu probable que vous puissiez la défoncer.",
-			"myAction": "null",
 			"myGo": ["hitDoor","cavern"],
 			"myGoContent": ["Donner un grand coup d'épaule","Retourner sur vos pas"]
 		},
 		{
-			"myId": "hitDoor", 
-			"myContentH2": "null",
+			"myId": "hitDoor",
 			"myContentTxt": "BLAM ! La porte n'a pas bougé d'un poil. Par contre, votre épaule, elle, s'est enfoncée de quelques centimètres. Vous perdez 1 point de vie.",
 			"myAction": "hit",
 			"myGo": ["hitDoor","cavern"],
 			"myGoContent": ["Ré-essayer !","Retourner sur vos pas"]
 		},
 		{
-			"myId": "exit", 
-			"myContentH2": "null",
+			"myId": "exit",
 			"myContentTxt": "Vous voyez la lumière du jour... Vous avez réussi à vous échapper !",
-			"myAction": "null",
 			"myGo": ["acceuil"],
 			"myGoContent": ["Fin"]
 		},
 		{
-			"myId": "death", 
-			"myContentH2": "null",
+			"myId": "death",
 			"myContentTxt": "Vous êtes mort(e) ! C'est balot.",
-			"myAction": "null",
 			"myGo": ["acceuil"],
 			"myGoContent": ["Fin"]
 		},
@@ -106,9 +89,7 @@
 		},
 		{
 			"myId": "doorOfDonjon", 
-			"myContentH2": "null",
 			"myContentTxt": "Vous voilà devant les immenses portes du donjon du démon que l'on nomme Zator le malveillant",
-			"myAction": "null",
 			"myGo": ["greatHall","goHome"],
 			"myGoContent": ["Rentrer dans le donjon","Rentrer chez soi"]
 		},
@@ -116,41 +97,133 @@
 			"myId": "greatHall", 
 			"myContentH2": "Le grand hall",
 			"myContentTxt": "Vous êtes rentrez, quel courage, vous pouvez voir un groupe d'aventurier en attente dans le hall et un escalier descendant en face de vous.",
-			"myAction": "null",
 			"myGo": ["grpAventurier","1stLevel"],
 			"myGoContent": ["Aller parler aux autres aventurier","Se lancer dans les escalier du donjon"]
 		},
 		{
-			"myId": "goHome", 
-			"myContentH2": "null",
-			"myContentTxt": "Ce voyage fut d'aucune utilité, vous rentrez en vie mais sans haut faits honnorable...",
-			"myAction": "null",
+			"myId": "goHome",
+			"myContentTxt": "Vous rentrez en vie mais sans haut faits honnorable...",
+			"myContentElf": "Votre femme: Coucou chérie tu rentres bien tot, t'avais oublié ce parchemin en partant !",
+			"myAction": "getParchemin",
 			"myGo": ["doorOfDonjon","oldDeath"],
 			"myGoContent": ["Repartir au donjon de Zator le malveillant","Rester chez soi"]
 
 		},
 		{
 			"myId": "oldDeath", 
-			"myContentH2": "null",
 			"myContentTxt": "Vous êtes mort(e) de veillesse !",
-			"myAction": "null",
 			"myGo": ["acceuil"],
 			"myGoContent": ["Fin"]
 		},
 		{
 			"myId": "grpAventurier", 
 			"myContentH2": "Les aventurier des terres disparues",
-			"myContentTxt": "Vous : Bonjour à vous ! </br> Un des hommes : Bonjour mon ami je me présente Narvin fils de Nain et voici Elial fille d'elfe et Eroll fils de barbare l'un de nous pourrait-il t'accompagner dans ta quête ? ",
-			"myAction": "null",
+			"myContentTxt": "Vous : Bonjour à vous ! </br> ",
+			"myContentNain": "Un des hommes : Bonjour mon ami je me présente Narvin fils de Nain et voici Elial fille d'elfe et Eroll fils de barbare l'un de nous pourrait-il t'accompagner dans ta quête ? ",
+			"myAction": "resetCompagnon",
 			"myGo": ["getNain","getElf","getBarbare","1stLevel"],
 			"myGoContent": ["Demander au nain de vous rejoindre","Demander à l'elf de vous rejoindre","Demander au barbare de vous rejoindre","Continuer votre route en remerciant les aventurier" ]
 		},
 		{
 			"myId": "1stLevel",
-			"myContentH2": "Premier niveau du donjon",
-			"myContentTxt": "Vous voila au premier niveau du donjon",
-			"myAction": "null",
+			"myContentH2": "Premier niveau du donjon de Zator le malveillant",
+			"myContentTxt": "Vous voilà au premier niveau du donjon vous tombez nez à nez avec quelques gobelin </br> ",
+			"myContentElf": "Elial : Quelles créature répugnante des tenebres !",
+			"myContentNain": "Narvin : MMh ! Des gobelins ça veux dire qu'on est pas loin d'au moins quelques pieces d'or.. Avançons !",
+			"myGo": ["2sdLevelRun","killGobelin"],
+			"myGoContent": ["Courir jusqu'à l'escalier suivant !","Se farcir les gobelins !"]
+		},
+		{
+			"myId": "getNain",
+			"myContentH2": "Narvin fils de nain",
+			"myContentNain": "Narvin : Je saurais vous être utile dans cette quête mon ami !",
+			"myAction": "getNain",
+			"myGo": ["1stLevel","grpAventurier"],
+			"myGoContent": ["Se lancer dans les escalier du donjon","Changer d'avis, choisir quelqu'un d'autre"]
+		},
+		{
+			"myId": "getElf",
+			"myContentH2": "Elial fille d'elf",
+			"myContentElf": "Elial : Je saurais vous être utile dans cette quête mon ami !",
+			"myAction": "getElf",
+			"myGo": ["1stLevel","grpAventurier"],
+			"myGoContent": ["Se lancer dans les escalier du donjon","Changer d'avis, choisir quelqu'un d'autre"]
+		},
+		{
+			"myId": "getBarbare",
+			"myContentH2": "Eroll fils de barbare",
+			"myContentNain": "Eroll : Vous pensez vraiment que j'accompagnerais un humain de votre catégorie dans cette quête ? Vous faites erreur mon ami !",
+			"myGo": ["1stLevel","grpAventurier"],
+			"myGoContent": ["Se lancer dans les escalier du donjon","Choisir quelqu'un d'autre"]
+		},
+		{
+			"myId": "2sdLevelRun",
+			"myContentH2": "Deuxième niveau du donjon de Zator le malveillant",
+			"myContentTxt": "Vous avez agro les gobelins de la salle précédente et le bruit qu'ils ont fais en vous suivant a reveillé un troll des cavernes dans la piece ou vous êtes depuis peu",
+			"myGo": ["agroDeath"],
+			"myGoContent": ["Combattre les monstres tant bien que mal"]
+		},
+		{
+			"myId": "killGobelin",
+			"myContentTxt": "Après quelques minutes le combat fut terminé",
+			"myContentElf": "Elial tue le dernier gobelin d'une flêche entre les yeux </br> Elial : Cette race c'est vraiment de la vermine !",
+			"myContentNain": "Narvin tue le dernier gobelin d'un grand coup de son hache à deux mains </br> Narvin : Et de 5 pour moi ! ",
 			"myGo": ["2sdLevel"],
+			"myGoContent": ["Continuer sa route vers le deuxième niveau"]
+		},
+		{
+			"myId": "agroDeath", 
+			"myContentTxt": "Vous êtes mort(e) mangé par le troll",
+			"myContentElf": "pendant que votre compagnon se bat contre une petite dizaine de gobelins..",
+			"myContentNain": "pendant que votre compagnon se bat contre une petite dizaine de gobelins..",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Fin"]
+		},
+		{
+			"myId": "2sdLevel",
+			"myContentH2": "Deuxième niveau du donjon de Zator le malveillant",
+			"myContentTxt": "Le sol tremble d'un grondement si grave qu'il parait venir des abimes..",
+			"myContentElf": "Elial : Cette odeur répugnante ne peux venir que d'un troll des cavernes restons silencieux.. Je pense que le mieux serait d'éviter de le reveiller je peux m'en occuper, la discretion des elfs est bien connue..",
+			"myContentNain": "Narvin : Regardez au fond de la salle à coté de la prochaine porte, c'est un troll endormie ! Si on arrive à s'en approcher discrétement on pourrait se le faire !",
+			"myGo": ["killTrollCompagnon","killTroll"],
+			"myGoContent": ["Laisser faire son compagnon","S'en occuper personnelement"]	
+		},
+		{
+			"myId": "killTroll",
+			"myContentTxt": "Le sol tremble d'un grondement si grave qu'il parait venir des abimes de la Terre..",
+			"myContentElf": "Elial : Cette odeur répugnante ne peux venir que d'un troll des cavernes restons silencieux.. Je pense que le mieux serait d'éviter de le reveiller je peux m'en occuper, la discretion des elfs est bien connue..",
+			"myContentNain": "Narvin : Regardez au fond de la salle, à coté de la prochaine porte, c'est un troll endormie ! Si on arrive à s'en approcher discrétement on pourrait se le faire !",
+			"myGo": ["killTrollCompagnon","killTroll"],
+			"myGoContent": ["Laisser faire son compagnon","S'en occuper personnelement"]	
+		},
+		{
+			"myId": "killTrollCompagnon",
+			"myContentElf": "Elial s'approche doucement du troll puis lui enfonce son couteau en plein coeur.. </br> Elial : Une créature de moins !",
+			"myContentNain": "Narvin s'approche du Troll trébuche et le Troll se reveille ! </br> Narvin : Aaargh Fuyez !",
+			"myAction": "killTrollCompagnon",
+			"myGo": ["fouyerTroll","3rdLevel"],
+			"myGoContent": ["Aller fouiller le Troll","Continuer à la prochaine salle"]	
+		},
+		{
+			"myId": "killTroll",
+			"myContentTxt": "Vous vous approchez du Troll ...",
+			"myAction": "killTroll",
+			"myContentElf": "Elial : Une créature de moins !",
+			"myContentNain": "Narvin : Ca compte quand même que pour un !",
+			"myGo": ["fouyerTroll","3rdLevel"],
+			"myGoContent": ["Fouiller le Troll","Continuer à la prochaine salle"]	
+		},
+		{
+			"myId": "fouyerTrool",
+			"myContentTxt": "Vous trouvez une grosse clé rouillé...",
+			"myAction": "getClef",
+			"myGo": ["3rdLevel"],
+			"myGoContent": ["Continuer à la prochaine salle"]	
+		},
+		{
+			"myId": "3rdLevel",
+			"myContentH2": "Troisième niveaeu du donjon",
+			"myGo": [""],
 			"myGoContent": [""]
 		}
 	]
