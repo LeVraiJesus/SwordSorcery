@@ -1,0 +1,70 @@
+{ 
+	"pages": [
+		{
+			"myId": "intro1", 
+			"myContentH2": "Epic dungeon of the evil necromancer",
+			"myContentTxt": "En voila un jeu qu'il est bien",
+			"myAction": "reset",
+			"myGo": ["wakeUp"],
+			"myGoContent": ["Commencer l'aventure !"]
+		},
+		{ 
+			"myId": "wakeUp",
+		 	"myContentTxt": "Vous ouvez les yeux... Tout est noir autour de vous...",
+		 	"myAction": "start",
+			"myGo": ["cavern"],
+			"myGoContent": ["Se relever"]
+		},
+		{ 
+			"myId": "cavern",
+		 	"myContentTxt": "Vous êtes dans une caverne sombre. La seule issue semble être une porte à quelques mètres de là.",
+			"myGo": ["doorLocked","wait","examine"],
+			"myGoContent": ["Sortir","Attendre","Examiner le sol"]
+		},
+		{
+			"myId": "examine",
+		 	"myContentTxt": "Rien de plus que des petits cailloux et de la poussière...",
+			"myGo": ["doorLocked","wait"],
+			"myGoContent": ["Sortir","Attendre"]
+		},
+		{
+			"myId": "wait",
+		 	"myContentTxt": "Vous attendez quelques minutes, mais rien ne se passe...",
+			"myGo": ["wait","hitWall","doorLocked","examine"],
+			"myGoContent": ["Continuer à attendre","Se taper la tête contre le mur","Sortir","Examiner le sol"]
+		},
+		{
+			"myId": "hitWall", 
+			"myContentH2": "Aie ! Vous perdez 1 point de vie...",
+			"myContentTxt": "Quelque chose tombe du plafond : une clé était cachée dans une faille.",
+			"myAction": "hit",
+			"myGo": ["exit"],
+			"myGoContent": ["Utiliser la clé et ouvrir la porte"]
+		},
+		{
+			"myId": "doorLocked",
+			"myContentTxt": "Malheureusement, une porte en bois bloque le passage. Elle a l'air vraiment solide&nbsp;: peu probable que vous puissiez la défoncer.",
+			"myGo": ["hitDoor","cavern"],
+			"myGoContent": ["Donner un grand coup d'épaule","Retourner sur vos pas"]
+		},
+		{
+			"myId": "hitDoor",
+			"myContentTxt": "BLAM ! La porte n'a pas bougé d'un poil. Par contre, votre épaule, elle, s'est enfoncée de quelques centimètres. Vous perdez 1 point de vie.",
+			"myAction": "hit",
+			"myGo": ["hitDoor","cavern"],
+			"myGoContent": ["Ré-essayer !","Retourner sur vos pas"]
+		},
+		{
+			"myId": "exit",
+			"myContentTxt": "Vous voyez la lumière du jour... Vous avez réussi à vous échapper !",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Fin"]
+		},
+		{
+			"myId": "death",
+			"myContentTxt": "Vous êtes mort(e) ! C'est balot.",
+			"myGo": ["acceuil"],
+			"myGoContent": ["Fin"]
+		}
+	]
+}

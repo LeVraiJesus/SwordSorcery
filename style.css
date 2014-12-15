@@ -5,6 +5,7 @@ html {
 body {
 	font-size : 13pt;
 	font-family : "Trebuchet MS", Arial, sans-serif;
+	background-image: url('background.jpg');
 }
 
 h2 {
@@ -15,20 +16,30 @@ h2 {
 #status {
 	position : absolute;
 	top : 0px;
+	left: 0px;
 	width : 100%;
 	text-align : center;
 	border-bottom : 1px solid lightGray;
+	background-image: url(statusBack.jpg);
+	color: #FFFFCC;
 }
 
 #status #premierNiveau div {
 	display : inline-block;
 	padding : 10px 20px;
-	color : gray;
 	border-left : 1px solid lightGray;
 	border-right : 1px solid lightGray;
 }
 #status #premierNiveau div+div {
 	border-left : none;
+}
+
+#status #secondNiveau {
+	background-color: #FFFFCC;
+}
+
+.value{
+	color: rgb(188,0,0);
 }
 
 .section {
@@ -37,6 +48,7 @@ h2 {
 	margin-top : 100px;
 	max-width : 600px;
 	border : 1px solid lightGray;
+	background-color: #FFFFCC;
 }
 
 .section .contentCompagnon {
@@ -78,17 +90,23 @@ h2 {
 }
 
 #inventaireContent{
+
 	text-align: center;
 	width: 100%;
 	top:40px;
 	position: absolute;
-	border-bottom: 1px solid lightGray;
+	
 }
 
 #inventaireContent #empty{
-	font-style: italic;		
+	font-style: italic;	
+	background-color: #FFFFCC;	
 }
 
+#inventaireContent #empty:hover{
+	font-style: italic;		
+	cursor:url('cursor.png'),pointer;
+}
 #inventaireContent .Parchemin{
 	background-image:url('Parchemin.png');
 	background-color:NavajoWhite;
